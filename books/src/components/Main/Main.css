@@ -1,0 +1,39 @@
+.Main {
+    height: calc(100% - 100px);
+}
+
+.Main .row {
+    height: 100%;
+}
+
+.Main .search {
+    height: 250px;
+}
+
+.Main .results {
+    height: calc(100% - 250px);
+}
+
+.Main .filters {
+    border-left: 2px solid rgb(110, 89, 82);
+    background-color: rgb(110, 89, 82);
+    position: relative;
+    -webkit-box-shadow: 0px 2px 21px 0px #222222; 
+    box-shadow: 0px 2px 21px 0px #222222;
+    z-index: 10;
+    padding: 40px;
+}
+
+.Search {
+    background-color: rgb(144, 119, 111);
+    padding: 35px;
+    padding-left: 40px;
+    width: 100%;
+}
+
+.Results {
+    background-color: rgb(175, 165, 161);
+    padding: 35px;
+    padding-left: 40px;
+    width: 100%;
+}

@@ -1,0 +1,29 @@
+.App {
+  height: 100%;
+  font-family: 'Playfair Display', serif;
+}
+
+.col, .col-10, .col-2, .row {
+  margin: 0;
+  padding: 0;
+}
+
+input, .form-control {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px rgb(110, 89, 82) solid;
+  background-color: rgb(133, 107, 99);
+  color: rgb(204, 201, 199);
+}
+
+input::placeholder, .form-control::placeholder {
+  color: rgb(175, 165, 161);
+}
+
+.form-control:focus {
+  color: rgb(204, 201, 199);
+  background-color: rgb(133, 107, 99);
+  border: 1px rgb(110, 89, 82) solid;
+  box-shadow: none;
+}
+

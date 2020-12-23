@@ -1,0 +1,11 @@
+.Navv {
+    background-color: rgb(110, 89, 82);
+    padding: 20px;
+    padding-left: 40px;
+    font-size: 40px;
+    height: 100px;
+    -webkit-box-shadow: 0px 2px 21px 0px #222222; 
+    box-shadow: 0px 2px 21px 0px #222222;
+    position: relative;
+    z-index: 100;
+}
