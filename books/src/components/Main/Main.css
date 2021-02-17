@@ -7,11 +7,19 @@
 }
 
 .Main .search {
-    height: 250px;
+    height: 300px;
+}
+
+.Main .search-2 {
+    height: 200px;
 }
 
 .Main .results {
-    height: calc(100% - 250px);
+    height: calc(100% - 300px);
+}
+
+.Main .results-2 {
+    height: calc(100% - 200px);
 }
 
 .Main .filters {
@@ -31,9 +39,33 @@
     width: 100%;
 }
 
+.Search small {
+    padding-left: 15px;
+    cursor: pointer;
+}
+
 .Results {
     background-color: rgb(175, 165, 161);
     padding: 35px;
     padding-left: 40px;
     width: 100%;
+}
+
+.OneResult {
+    background-color: rgb(207, 198, 194);
+    padding: 25px;
+    margin: 10px;
+}
+
+.OneResult .highlight {
+    border-left: 1px solid gray;
+}
+
+.Filters .add-file {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.Filters .add-btn {
+    margin-bottom: 35px;
 }
