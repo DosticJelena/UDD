@@ -15,6 +15,10 @@ public class UploadModel {
     private String authorLName;
     
     private String genre;
+    
+    private double latitude;
+    
+    private double longitude;
 
     private MultipartFile[] files;
 
@@ -56,6 +60,22 @@ public class UploadModel {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 
 	public MultipartFile[] getFiles() {

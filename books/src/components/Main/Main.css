@@ -7,7 +7,7 @@
 }
 
 .Main .search {
-    height: 300px;
+    height: 350px;
 }
 
 .Main .search-2 {
@@ -15,7 +15,7 @@
 }
 
 .Main .results {
-    height: calc(100% - 300px);
+    height: calc(100% - 350px);
 }
 
 .Main .results-2 {
@@ -42,6 +42,14 @@
 .Search small {
     padding-left: 15px;
     cursor: pointer;
+}
+
+.Search .operator-btn {
+    opacity: 0.5;
+}
+
+.Search .operator-btn:hover {
+    opacity: 1.0;
 }
 
 .Results {

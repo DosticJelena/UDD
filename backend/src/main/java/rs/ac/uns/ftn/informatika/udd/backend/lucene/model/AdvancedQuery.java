@@ -41,5 +41,6 @@ public class AdvancedQuery {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
+	
 
 }

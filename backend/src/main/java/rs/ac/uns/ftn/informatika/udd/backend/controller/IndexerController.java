@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -106,6 +107,8 @@ public class IndexerController {
 	            	indexUnit.setGenre(model.getGenre());
 	            	indexUnit.setAuthorFName(model.getAuthorFName());
 	            	indexUnit.setAuthorLName(model.getAuthorLName());
+	            	GeoPoint g = new GeoPoint(model.getLatitude(), model.getLongitude());
+	            	indexUnit.setGeo(g);
 	            	indexer.add(indexUnit);
 	            }
 	    	}

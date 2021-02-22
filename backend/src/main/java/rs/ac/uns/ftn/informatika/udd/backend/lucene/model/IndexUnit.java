@@ -5,6 +5,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldIndex;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.GeoPointField;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,6 +20,8 @@ public class IndexUnit {
 
 	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
 	private String text;
+	@GeoPointField
+	private GeoPoint geo;
 	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
 	private String genre;
 	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
@@ -34,6 +38,7 @@ public class IndexUnit {
 	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN)
 	private String filedate;
+	
 	
 	public String getText() {
 		return text;
@@ -83,6 +88,12 @@ public class IndexUnit {
 	}
 	public void setAuthorLName(String authorLName) {
 		this.authorLName = authorLName;
+	}
+	public GeoPoint getGeo() {
+		return geo;
+	}
+	public void setGeo(GeoPoint geo) {
+		this.geo = geo;
 	}
 	
 	
