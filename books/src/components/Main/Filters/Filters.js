@@ -11,7 +11,9 @@ class Filters extends React.Component {
             genre: "",
             synopsis: "",
             fName: "",
-            lName: ""
+            lName: "",
+            latitude: 0,
+            longitude: 0
         }
     }
 
@@ -73,12 +75,20 @@ class Filters extends React.Component {
                 <label>Book - Genre</label>
                 <input onChange={this.handleInputChange} value={this.state.genre} name="genre" type="text" className="form-control" placeholder="Genre"/>
             </div>
+            <div className="form-group row">
+                <div className="col-6">
+                    <label>Latitude</label>
+                    <input onChange={this.handleInputChange} value={this.state.latitude} name="latitude" type="number" className="form-control" placeholder="Latitude"/>
+                </div>
+                <div className="col-6">
+                    <label>Longitude</label>
+                    <input onChange={this.handleInputChange} value={this.state.longitude} name="longitude" type="number" className="form-control" placeholder="Longitude"/>
+                </div>
+            </div>
             <input onChange={this.onFileChange} className="add-file" type="file" name="file"/>
             <br/>
             <button onClick={this.onFileUpload} className="btn btn-dark add-btn">Add</button>
 
-            <h4>Filters</h4>
-            <hr/>
         </div>
     }
 

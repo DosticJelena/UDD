@@ -4,6 +4,7 @@ import Results from './Results/Results';
 import './Main.css';
 import Filters from './Filters/Filters';
 import axios from 'axios';
+import {NotificationManager} from 'react-notifications';
 
 class Main extends React.Component {
 
@@ -34,8 +35,11 @@ class Main extends React.Component {
     }
 
     search = (_field,_value) => {
-        if (_field === "" || _value === "") {
-            return
+        if (_field === "") {
+            NotificationManager.warning('Field is not selected.', 'Warning', 3000);
+        }
+        if (_value === "") {
+            NotificationManager.warning('Value is not entered.', 'Warning', 3000);
         }
         axios.post(this.state.BASE_URL + "search/term/",{
             field: _field,
@@ -49,6 +53,12 @@ class Main extends React.Component {
     }
 
     fuzzySearch = (_field,_value) => {
+        if (_field === "") {
+            NotificationManager.warning('Field is not selected.', 'Warning', 3000);
+        }
+        if (_value === "") {
+            NotificationManager.warning('Value is not entered.', 'Warning', 3000);
+        }
         axios.post(this.state.BASE_URL + "search/fuzzy/",{
             field: _field,
             value: _value
@@ -61,6 +71,12 @@ class Main extends React.Component {
     }
 
     prefixSearch = (_field,_value) => {
+        if (_field === "") {
+            NotificationManager.warning('Field is not selected.', 'Warning', 3000);
+        }
+        if (_value === "") {
+            NotificationManager.warning('Value is not entered.', 'Warning', 3000);
+        }
         axios.post(this.state.BASE_URL + "search/prefix/",{
             field: _field,
             value: _value
@@ -73,6 +89,12 @@ class Main extends React.Component {
     }
 
     phraseSearch = (_field,_value) => {
+        if (_field === "") {
+            NotificationManager.warning('Field is not selected.', 'Warning', 3000);
+        }
+        if (_value === "") {
+            NotificationManager.warning('Value is not entered.', 'Warning', 3000);
+        }
         axios.post(this.state.BASE_URL + "search/phrase",{
             field: _field,
             value: _value
@@ -85,6 +107,12 @@ class Main extends React.Component {
     }
 
     advancedSearch = (_field1, _value1, _field2, _value2, _operator, _type) => {
+        if (_field1 === "" || _field2 === "") {
+            NotificationManager.warning('Field is not selected.', 'Warning', 3000);
+        }
+        if (_value1 === "" || _value2 === "") {
+            NotificationManager.warning('Value is not entered.', 'Warning', 3000);
+        }
         axios.post(this.state.BASE_URL + "search/boolean/" + _type,{
             field1: _field1,
             value1: _value1,

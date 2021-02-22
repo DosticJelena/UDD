@@ -33,11 +33,16 @@ class OneResult extends React.Component {
                     
                 </div>
                 <div className="col-6 highlight">
-                    {this.props.advancedMode || this.props.selected !== "Content" || this.props.advSelected1 !== "Content" || this.props.advSelected2 !== "Content"
+                    {!this.props.advancedMode && this.props.selected !== "Content"
                     ? 
                     <div>{this.props.r.text.slice(0,300)}</div>
                     : 
-                    <div dangerouslySetInnerHTML={{__html: '...' + this.props.r.highlight + '...'}} /> }
+                    this.props.advancedMode
+                    ?
+                    <div>{this.props.r.text.slice(0,300)}</div>
+                    :
+                    <div dangerouslySetInnerHTML={{__html: '...' + this.props.r.highlight + '...'}} />
+                    }
                 </div>
             </div>
         </div>
