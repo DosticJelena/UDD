@@ -30,7 +30,7 @@ class OneResult extends React.Component {
                     :
                     <p>Author: {this.props.r.authorFName} {this.props.r.authorLName}</p>
                     }
-                    
+                    <p>Location: {this.props.r.latitude}, {this.props.r.longitude}</p>
                 </div>
                 <div className="col-6 highlight">
                     {!this.props.advancedMode && this.props.selected !== "Content"

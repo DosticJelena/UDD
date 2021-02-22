@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {NotificationManager} from 'react-notifications';
 
 class Filters extends React.Component {
 
@@ -49,9 +50,21 @@ class Filters extends React.Component {
             "authorLName",
             this.state.lName
         );
+        formData.append(
+            "latitude",
+            this.state.latitude
+        );
+        formData.append(
+            "longitude",
+            this.state.longitude
+        );
         axios.post(this.props.BASE_URL + "index/add", formData)
         .then(res => {
-            this.setState({title: "",genre: "", selectedFile: null, fName: "", lName: ""})
+            this.setState({title: "",genre: "", selectedFile: null, fName: "", lName: "", latitude: 0, longitude: 0})
+            NotificationManager.success('Successfully added new document.', 'Success', 3000);
+        })
+        .catch(er => {
+            NotificationManager.error('Could not add new document.', 'Error', 3000);
         });
       };
 

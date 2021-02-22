@@ -12,14 +12,16 @@ public final class ResultData {
 	private String authorFName;
 	private String authorLName;
 	private String genre;
-	private GeoPoint geo;
+	private String latitude;
+	private String longitude;
 	
 	public ResultData() {
 		super();
 	}
 
 	public ResultData(String title, String keywords, String location, 
-			String highlight, String text, String first, String last, String genre, GeoPoint geo) {
+			String highlight, String text, String first, String last, String genre,
+			String latitude, String longitude) {
 		super();
 		this.title = title;
 		this.keywords = keywords;
@@ -29,7 +31,8 @@ public final class ResultData {
 		this.authorFName = first;
 		this.authorLName = last;
 		this.genre = genre;
-		this.geo = geo;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 	
 	public String getGenre() {
@@ -96,14 +99,21 @@ public final class ResultData {
 		this.highlight = highlight;
 	}
 
-	public GeoPoint getGeo() {
-		return geo;
+	public String getLatitude() {
+		return latitude;
 	}
 
-	public void setGeo(GeoPoint geo) {
-		this.geo = geo;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
-	
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
 	
 
 }

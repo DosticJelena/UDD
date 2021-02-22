@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.informatika.udd.backend.lucene.search;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.elasticsearch.action.search.SearchResponse;
@@ -55,7 +56,7 @@ public class ResultRetriever {
         for (IndexUnit indexUnit : repository.search(query)) {
         	results.add(new ResultData(indexUnit.getTitle(), indexUnit.getKeywords(), 
         			indexUnit.getFilename(), "", indexUnit.getText(), indexUnit.getAuthorFName(), 
-        			indexUnit.getAuthorLName(), indexUnit.getGenre(), indexUnit.getGeo()));
+        			indexUnit.getAuthorLName(), indexUnit.getGenre(), indexUnit.getLatitude(), indexUnit.getLongitude()));
 		}
         
 		
@@ -85,7 +86,8 @@ public class ResultRetriever {
 	                		(String) searchHit.getSource().get("authorFName"), 
 	                		(String) searchHit.getSource().get("authorLName"), 
 	                		(String) searchHit.getSource().get("genre"),
-	                		(GeoPoint) searchHit.getSource().get("geo"));
+	                		(String) searchHit.getSource().get("latitude"),
+	                		(String) searchHit.getSource().get("longitude"));
 	                results.add(res);
 	            }
 	            if (results.size() > 0) {

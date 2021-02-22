@@ -13,31 +13,39 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Document(indexName = IndexUnit.INDEX_NAME, type = IndexUnit.TYPE_NAME, shards = 1, replicas = 0)
 public class IndexUnit {
 
-	public static final String INDEX_NAME = "digitallibrary";
+	public static final String INDEX_NAME = "digital_library";
 	public static final String TYPE_NAME = "book";
 	
 	public static final String DATE_PATTERN = "yyyy-MM-dd";
 
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String text;
-	@GeoPointField
-	private GeoPoint geo;
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String genre;
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String authorFName;
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String authorLName;
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String title;
-	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
-	private String keywords;
 	@Id
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed, store = true)
 	private String filename;
 	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN)
 	private String filedate;
+	
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String title;
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String keywords;
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String text;
+	
+	@GeoPointField
+	private GeoPoint geo;
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String latitude;
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String longitude;
+	
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String genre;
+	
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String authorFName;
+	@Field(type = FieldType.String, index = FieldIndex.analyzed, store = true)
+	private String authorLName;
 	
 	
 	public String getText() {
@@ -95,6 +103,19 @@ public class IndexUnit {
 	public void setGeo(GeoPoint geo) {
 		this.geo = geo;
 	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	
 	
 	
 }

@@ -109,6 +109,8 @@ public class IndexerController {
 	            	indexUnit.setAuthorLName(model.getAuthorLName());
 	            	GeoPoint g = new GeoPoint(model.getLatitude(), model.getLongitude());
 	            	indexUnit.setGeo(g);
+	            	indexUnit.setLatitude(String.valueOf(model.getLatitude()));
+	            	indexUnit.setLongitude(String.valueOf(model.getLongitude()));
 	            	indexer.add(indexUnit);
 	            }
 	    	}

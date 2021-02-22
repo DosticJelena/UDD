@@ -113,6 +113,9 @@ class Main extends React.Component {
         if (_value1 === "" || _value2 === "") {
             NotificationManager.warning('Value is not entered.', 'Warning', 3000);
         }
+        if (_operator === "") {
+            NotificationManager.warning('Operator is not selected.', 'Warning', 3000);
+        }
         axios.post(this.state.BASE_URL + "search/boolean/" + _type,{
             field1: _field1,
             value1: _value1,
