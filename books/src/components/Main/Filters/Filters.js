@@ -13,6 +13,7 @@ class Filters extends React.Component {
             synopsis: "",
             fName: "",
             lName: "",
+            keywords: "",
             latitude: 0,
             longitude: 0
         }
@@ -58,9 +59,13 @@ class Filters extends React.Component {
             "longitude",
             this.state.longitude
         );
+        formData.append(
+            "keywords",
+            this.state.keywords
+        );
         axios.post(this.props.BASE_URL + "index/add", formData)
         .then(res => {
-            this.setState({title: "",genre: "", selectedFile: null, fName: "", lName: "", latitude: 0, longitude: 0})
+            this.setState({title: "",genre: "", selectedFile: null, fName: "", lName: "", latitude: 0, longitude: 0, keywords: ""})
             NotificationManager.success('Successfully added new document.', 'Success', 3000);
         })
         .catch(er => {
@@ -88,14 +93,18 @@ class Filters extends React.Component {
                 <label>Book - Genre</label>
                 <input onChange={this.handleInputChange} value={this.state.genre} name="genre" type="text" className="form-control" placeholder="Genre"/>
             </div>
+            <div className="form-group">
+                <label>Book - Keywords</label>
+                <input onChange={this.handleInputChange} value={this.state.keywords} name="keywords" type="text" className="form-control" placeholder="Keywords"/>
+            </div>
             <div className="form-group row">
                 <div className="col-6">
                     <label>Latitude</label>
-                    <input onChange={this.handleInputChange} value={this.state.latitude} name="latitude" type="number" className="form-control" placeholder="Latitude"/>
+                    <input onChange={this.handleInputChange} value={this.state.latitude} name="latitude" min="-90" max="90" type="number" className="form-control" placeholder="Latitude"/>
                 </div>
                 <div className="col-6">
                     <label>Longitude</label>
-                    <input onChange={this.handleInputChange} value={this.state.longitude} name="longitude" type="number" className="form-control" placeholder="Longitude"/>
+                    <input onChange={this.handleInputChange} value={this.state.longitude} name="longitude" min="-180" max="180" type="number" className="form-control" placeholder="Longitude"/>
                 </div>
             </div>
             <input onChange={this.onFileChange} className="add-file" type="file" name="file"/>

@@ -17,10 +17,12 @@ class Main extends React.Component {
             selected: "Field",
             advSelected1: "Field",
             advSelected2: "Field",
+            changeHighlights: false
         }
     }
 
     handleSelectedChange = (e, selectedType) => {
+        this.setState({changeHighlights: false});
         if (selectedType === 0) {
             this.setState({selected: e.target.name})
         } else if (selectedType === 1) {
@@ -46,7 +48,7 @@ class Main extends React.Component {
             value: _value
         })
         .then(res => {
-            this.setState({results: res.data});
+            this.setState({results: res.data, changeHighlights: true});
             console.log(res);
         })
         .catch(err => console.log(err));
@@ -64,7 +66,7 @@ class Main extends React.Component {
             value: _value
         })
         .then(res => {
-            this.setState({results: res.data});
+            this.setState({results: res.data, changeHighlights: true});
             console.log(res);
         })
         .catch(err => console.log(err));
@@ -82,7 +84,7 @@ class Main extends React.Component {
             value: _value
         })
         .then(res => {
-            this.setState({results: res.data});
+            this.setState({results: res.data, changeHighlights: true});
             console.log(res);
         })
         .catch(err => console.log(err));
@@ -100,7 +102,7 @@ class Main extends React.Component {
             value: _value
         })
         .then(res => {
-            this.setState({results: res.data});
+            this.setState({results: res.data, changeHighlights: true});
             console.log(res);
         })
         .catch(err => console.log(err));
@@ -124,10 +126,15 @@ class Main extends React.Component {
             operation: _operator
         })
         .then(res => {
-            this.setState({results: res.data});
+            this.setState({results: res.data, changeHighlights: true});
             console.log(res);
         })
         .catch(err => console.log(err));
+    }
+
+    changeHighlightsToFalse = () => {
+        console.log("OK")
+        this.setState({changeHighlights: false});
     }
 
     render() {
@@ -146,7 +153,8 @@ class Main extends React.Component {
                         handleSelectedChange={this.handleSelectedChange}
                         selected={this.state.selected}
                         advSelected1={this.state.advSelected1}
-                        advSelected2={this.state.advSelected2}/>
+                        advSelected2={this.state.advSelected2}
+                        changeHighlights={this.changeHighlightsToFalse}/>
                     </div>
                     <div className={this.state.advancedMode ? "row results" : "row results-2"}>
                         <Results 
@@ -154,7 +162,8 @@ class Main extends React.Component {
                         advancedMode={this.state.advancedMode}
                         selected={this.state.selected}
                         advSelected1={this.state.advSelected1}
-                        advSelected2={this.state.advSelected2}/>
+                        advSelected2={this.state.advSelected2}
+                        changeHighlights={this.state.changeHighlights}/>
                     </div>
 
                 </div>

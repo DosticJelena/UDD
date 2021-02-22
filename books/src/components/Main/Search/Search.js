@@ -37,10 +37,13 @@ class Search extends React.Component {
 
     handleSelectedChange = (e, selectedType) => {
         if (selectedType === 0) {
+            this.props.changeHighlights();
             this.setState({selected: e.target.name})
         } else if (selectedType === 1) {
+            this.props.changeHighlights();
             this.setState({advSelected1: e.target.name})
         } else if (selectedType === 2) {
+            this.props.changeHighlights();
             this.setState({advSelected2: e.target.name})
         }
     }
@@ -57,6 +60,8 @@ class Search extends React.Component {
             renderValue = "genre";
         } else if (stateValue === "Content") {
             renderValue = "text";
+        } else if (stateValue === "Keywords") {
+            renderValue = "keywords";
         } 
 
         return renderValue;
@@ -88,6 +93,7 @@ class Search extends React.Component {
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,1)} name="Author Last Name" href="#/action-3">Author Last Name</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,1)} name="Genre" href="#/action-3">Genre</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,1)} name="Content" href="#/action-3">Content</Dropdown.Item>
+                                    <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,1)} name="Keywords" href="#/action-3">Keywords</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -105,6 +111,7 @@ class Search extends React.Component {
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,2)} name="Author Last Name" href="#/action-3">Author Last Name</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,2)} name="Genre" href="#/action-3">Genre</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,2)} name="Content" href="#/action-3">Content</Dropdown.Item>
+                                    <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,2)} name="Keywords" href="#/action-3">Keywords</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -168,6 +175,7 @@ class Search extends React.Component {
                                 <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,0)} name="Author Last Name" href="#/action-3">Author Last Name</Dropdown.Item>
                                 <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,0)} name="Genre" href="#/action-3">Genre</Dropdown.Item>
                                 <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,0)} name="Content" href="#/action-3">Content</Dropdown.Item>
+                                <Dropdown.Item onClick={(e) => this.props.handleSelectedChange(e,0)} name="Keywords" href="#/action-3">Keywords</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>

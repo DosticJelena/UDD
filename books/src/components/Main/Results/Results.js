@@ -14,6 +14,7 @@ class Results extends React.Component {
             advSelected1={this.props.advSelected1}
             advSelected2={this.props.advSelected2} 
             advancedMode={this.props.advancedMode} 
+            changeHighlights={this.props.changeHighlights}
             key={index} 
             r={r} />)}
         </div>
